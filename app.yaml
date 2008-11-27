@@ -1,0 +1,23 @@
+application: pso
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /stylesheets
+  static_dir: stylesheets
+
+- url: /(index\.html?)?
+  static_files: index.html
+  upload: index\.html
+
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+- url: /guestbook/.*
+  script: guestbook/helloworld.py
+
+- url: /mileage/.*
+  script: mileage/mileage.py
+  login: required
